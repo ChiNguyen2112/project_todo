@@ -114,6 +114,11 @@ import NotMatch from "./NotMatch"
 import Navbar from "./Navbar"
 const TodoContainer = () => {
   const [todos, setTodos] = useState(getInitialTodos())
+  useEffect(() => {
+    // storing todos items
+    const temp = JSON.stringify(todos)
+    localStorage.setItem("todos", temp)
+  }, [todos])
   function getInitialTodos() {
     // getting stored items
     const temp = localStorage.getItem("todos")
@@ -161,17 +166,13 @@ const TodoContainer = () => {
       })
     )
   }
-  useEffect(() => {
-    // storing todos items
-    const temp = JSON.stringify(todos)
-    localStorage.setItem("todos", temp)
-  }, [todos])
+
   return (
     <>
      <Navbar />
    <Switch> 
   
-   <Route path="/">
+   <Route exact path="/">
     <div className="container">
       <div className="inner">
         <Header />
