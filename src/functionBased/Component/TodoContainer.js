@@ -108,7 +108,10 @@ import Header from "./Header"
 import InputTodo from "./InputTodo"
 import TodosList from "./TodosList"
 import { v4 as uuidv4 } from "uuid"
-
+import { Route, Routes,Switch } from "react-router-dom"
+import About from "./About"
+import NotMatch from "./NotMatch"
+import Navbar from "./Navbar"
 const TodoContainer = () => {
   const [todos, setTodos] = useState(getInitialTodos())
   function getInitialTodos() {
@@ -164,6 +167,11 @@ const TodoContainer = () => {
     localStorage.setItem("todos", temp)
   }, [todos])
   return (
+    <>
+     <Navbar />
+   <Switch> 
+  
+   <Route path="/">
     <div className="container">
       <div className="inner">
         <Header />
@@ -176,6 +184,17 @@ const TodoContainer = () => {
         />
       </div>
     </div>
+    </Route>
+    <Route path="/about">
+  <About />
+</Route>
+    <Route path="*">
+      <NotMatch />
+    </Route>
+    </Switch>
+  
+  
+    </>
   )
 }
 
