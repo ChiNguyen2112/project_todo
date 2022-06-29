@@ -1,13 +1,12 @@
-import React from "react"
-import SinglePage from "./SinglePage"
-import { Link, useRouteMatch, Route } from "react-router-dom"
+import React from "react";
+import SinglePage from "./SinglePage";
+import { Link, useRouteMatch, Route } from "react-router-dom";
 
 const About = () => {
-    const { url, path } = useRouteMatch()
-    console.log(useRouteMatch())
-  return  (
+  const { url, path } = useRouteMatch();
+  console.log(useRouteMatch());
+  return (
     <div className="about__content">
-     
       <ul className="about__list">
         <li>
           <Link to={`${url}/about-app`}>About App</Link>
@@ -20,6 +19,6 @@ const About = () => {
         <SinglePage />
       </Route>
     </div>
-  )
-}
-export default About
+  );
+};
+export default About;
