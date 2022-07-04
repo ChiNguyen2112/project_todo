@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import TodoContainer from './Component/TodoContainer';
+import TodoContainer from './functionBased/Component/TodoContainer';
 import "./App.css"
+import { BrowserRouter } from "react-router-dom"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 ReactDOM.render(
   <React.StrictMode>
+      <BrowserRouter>
    <TodoContainer/>
+   </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
